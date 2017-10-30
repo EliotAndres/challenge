@@ -6,3 +6,8 @@ COPY cluster_test.py /root/
 COPY requirements.txt /tmp/requirements.txt
 
 # Provision container
+RUN apt-get update \
+  && apt-get install -y python3-pip python3-dev \
+  && pip3 install --upgrade pip
+
+RUN pip3 install -r /tmp/requirements.txt
